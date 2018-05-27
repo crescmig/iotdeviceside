@@ -162,12 +162,14 @@ function generateAndPublishSensorsData(interval) {
           var date = new Date();
           dataPacket.ts = date.toISOString();
 
+          console.log("******* DEVICE SIDE: publish 'status' topic ****** \n");
           // convert the data packet into a string and then publish it
           iotfClient.publish("status","json", JSON.stringify(dataPacket) );
           // log out the emitted dataPacket
           if (flagShowStatusInfoLogs == true) {
             console.log(JSON.stringify(dataPacket));
           }
+          console.log("\n****************************************************** \n");
 
               var temperatureIncrement = 20;
               var humidityIncrement = 2;
